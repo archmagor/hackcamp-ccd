@@ -1,0 +1,48 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "OddsGate",
+  "description": "Identity-gated x402 server agent on Concordium testnet: real-time multi-bookmaker odds, season standings and a Poisson match-probability model behind zero-knowledge age/jurisdiction proof, settled via batch-settlement (one on-chain sponsored transaction per 10 calls, gas paid by sponsor).",
+  "active": true,
+  "x402Support": true,
+  "endpoints": [
+    {
+      "name": "x402-concordium",
+      "endpoint": "http://127.0.0.1:8080/goods",
+      "version": "2.0",
+      "skills": [
+        "odds-snapshot",
+        "team-status",
+        "match-probability"
+      ],
+      "domains": [
+        "sports-betting-data"
+      ]
+    }
+  ],
+  "capabilities": {
+    "extensions": [
+      {
+        "uri": "https://docs.concordium.com/a2a-extensions/concordium-badge/v1",
+        "params": {
+          "tokenAddress": "ccd:4221332d34e1694168c2a0c0b3fd0f27/cis-2:JyP9Xmt95AaqN2sWY1tUe",
+          "owner": {
+            "account": "ccd:4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796:4fT52zFGhSsVeJdHoM6dQLRyxxsbKqCyE7Xm9vHMVHaYjB6hwT"
+          },
+          "contracts": {
+            "cis8004": "ccd:4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796:12802.0",
+            "cis8": "ccd:4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796:12801.0"
+          },
+          "verify": "Query CIS-8004 agent_of for the token in params.tokenAddress; require status Active; require SHA-256 of the fetched card equals the on-chain metadata_hash.",
+          "verification": {
+            "mcp": "https://agent-registry-mcp.concordium.com/mcp",
+            "docs": "https://docs.concordium.com/a2a-extensions/concordium-badge/v1"
+          }
+        }
+      }
+    ]
+  },
+  "concordium": {
+    "network": "testnet",
+    "cis8004_token_id": 974
+  }
+}
