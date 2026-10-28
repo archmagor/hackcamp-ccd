@@ -1,7 +1,7 @@
 {
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "name": "OddsGate",
-  "description": "Identity-gated x402 server agent on Concordium testnet: real-time multi-bookmaker odds, season standings and a Poisson match-probability model behind zero-knowledge age/jurisdiction proof, settled via batch-settlement (one on-chain sponsored transaction per 10 calls, gas paid by sponsor).",
+  "description": "Identity-gated x402 server agent on Concordium testnet: one matchday-report call returns live multi-source odds, season standings/form and Poisson win-draw-loss probabilities behind zero-knowledge age/jurisdiction proof, settled via batch-settlement (one on-chain sponsored transaction per 10 calls, gas paid by sponsor).",
   "active": true,
   "x402Support": true,
   "endpoints": [
@@ -10,9 +10,7 @@
       "endpoint": "http://127.0.0.1:8080/goods",
       "version": "2.0",
       "skills": [
-        "odds-snapshot",
-        "team-status",
-        "match-probability"
+        "matchday-report"
       ],
       "domains": [
         "sports-betting-data"
